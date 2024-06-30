@@ -4,8 +4,8 @@
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	SDK_PATH=$(xcrun --sdk macosx --show-sdk-path)
-	# github actions macos-latest 1.57.0 fails, so try 1.70.0 instead
-	: ${BOOST_VERSION:=1.72.0}
+	# github actions macos-latest 1.83.0 fails, so try 1.85.0 instead
+	: ${BOOST_VERSION:=1.85.0}
 	echo "[*] Detected macosx: SDK_PATH=${SDK_PATH} BOOST_VERSION=${BOOST_VERSION}"
 fi
 if [ ! -z $(command -v glibtoolize) ]; then
@@ -18,7 +18,7 @@ fi
 # default values for boost library version and install location
 # (if not already defined in environment)
 
-: ${BOOST_VERSION:=1.57.0}
+: ${BOOST_VERSION:=1.83.0}
 : ${BOOST_INSTALL_PREFIX:=$(pwd)/boost-$BOOST_VERSION}
 : ${INCLUDE_DIRS:="/usr/include /usr/local/include $SDK_PATH/usr/include"}
 
